@@ -37,7 +37,7 @@ router.route('/refresh/:id')
   .post(refreshAttendanceCode);
 
 router.route('/details/:id')
-  .get(getAttendanceDetails);
+  .get(authorize('teacher', 'admin'),getAttendanceDetails);
 
 router.route('/mark-manual')
   .post(markAttendanceManually);

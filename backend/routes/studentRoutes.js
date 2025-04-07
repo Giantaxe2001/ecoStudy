@@ -5,9 +5,10 @@ const {
     getMyGrades,
     getMyAssignments,
     submitAssignment,
-    getStudentGradesByAssignment
+    getStudentGradesByAssignment,
 } = require("../controllers/studentController");
 const Grade = require("../models/Grade");
+const Class = require("../models/Class");
 const { protect, restrictTo } = require("../middleware/authMiddleware");
 const router = express.Router();
 

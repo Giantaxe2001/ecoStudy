@@ -106,17 +106,29 @@ exports.getStudentGradesByAssignment = async (req, res) => {
         const Submission = require('../models/Submission');
         const Assignment = require('../models/Assignment');
         
-        const classes = await Class.find({ students: studentId })
+        // Chỉ lấy các lớp học mà học sinh đang tham gia
+        const enrolledClasses = await Class.find({ students: studentId })
             .populate('subjects', 'name description');
         
-        if (!classes || classes.length === 0) {
+        if (!enrolledClasses || enrolledClasses.length === 0) {
             return res.status(200).json({ assignments: [] });
+        }
+
+        // Lấy danh sách ID của các lớp học mà học sinh đang tham gia
+        const enrolledClassIds = enrolledClasses.map(c => c._id.toString());
+        
+        // Nếu classId được chỉ định nhưng không nằm trong danh sách lớp của học sinh
+        if (classId && !enrolledClassIds.includes(classId)) {
+            return res.status(403).json({ 
+                message: "Bạn không có quyền xem điểm của lớp này",
+                assignments: [] 
+            });
         }
     
         const assignments = [];
 
         let subjects = [];
-        classes.forEach(cls => {
+        enrolledClasses.forEach(cls => {
             if (cls.subjects && cls.subjects.length > 0) {
                 if (classId && cls._id.toString() !== classId) {
                     return;
@@ -145,7 +157,7 @@ exports.getStudentGradesByAssignment = async (req, res) => {
         } else if (classId) {
             assignmentsFromDB = await Assignment.find({ classId });
         } else {
-            const classIds = classes.map(c => c._id);
+            const classIds = enrolledClasses.map(c => c._id);
             assignmentsFromDB = await Assignment.find({ classId: { $in: classIds } });
         }
         
@@ -157,7 +169,7 @@ exports.getStudentGradesByAssignment = async (req, res) => {
                 s => s.assignmentId.toString() === assignment._id.toString()
             );
             
-            const classInfo = classes.find(c => c._id.toString() === assignment.classId.toString());
+            const classInfo = enrolledClasses.find(c => c._id.toString() === assignment.classId.toString());
             const subjectInfo = classInfo?.subjects?.find(s => s._id.toString() === assignment.subjectId.toString());
             
             assignments.push({

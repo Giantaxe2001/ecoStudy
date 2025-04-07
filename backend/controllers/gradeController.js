@@ -154,11 +154,32 @@ const getMyGrades = async (req, res) => {
   try {
     const studentId = req.user.id; // Lấy ID từ token
 
-    const grades = await Grade.find({ student: studentId })
+    // Tìm các lớp học mà học sinh đang tham gia
+    const enrolledClasses = await Class.find({ students: studentId }).select('subjects');
+    
+    // Lấy danh sách ID của các môn học từ các lớp mà học sinh đang tham gia
+    const enrolledSubjectIds = [];
+    enrolledClasses.forEach(cls => {
+      cls.subjects.forEach(subjectId => {
+        if (!enrolledSubjectIds.includes(subjectId.toString())) {
+          enrolledSubjectIds.push(subjectId.toString());
+        }
+      });
+    });
+
+    console.log(`Học sinh ${studentId} có thể xem điểm của ${enrolledSubjectIds.length} môn học`);
+
+    // Chỉ lấy điểm của các môn học thuộc lớp mà học sinh đang học
+    const grades = await Grade.find({ 
+      student: studentId,
+      subject: { $in: enrolledSubjectIds }
+    })
       .populate("subject", "name")
       .populate("teacher", "name")
       .populate("assignmentId", "title totalPoints");
 
+    console.log(`Tìm thấy ${grades.length} điểm số thuộc các lớp đang học`);
+    
     res.status(200).json({ message: "Danh sách điểm số của bạn", grades });
   } catch (error) {
     console.error("Error getting my grades:", error);

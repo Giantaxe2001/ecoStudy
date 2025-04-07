@@ -216,8 +216,8 @@ exports.getAttendanceDetails = async (req, res) => {
       return res.status(404).json({ message: "Không tìm thấy phiên điểm danh!" });
     }
 
-    // Kiểm tra quyền giáo viên
-    if (req.user.role !== "admin" && !attendance.teacherId.equals(req.user._id)) {
+    // Kiểm tra quyền giáo viên - Cho phép tất cả giáo viên xem chi tiết điểm danh
+    if (req.user.role !== "admin" && req.user.role !== "teacher") {
       return res.status(403).json({ message: "Bạn không có quyền xem chi tiết điểm danh này!" });
     }
 
