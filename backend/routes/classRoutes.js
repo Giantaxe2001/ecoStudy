@@ -31,6 +31,48 @@ teacherRouter.get("/", protect, async (req, res) => {
   }
 });
 
+// 🌟 Giáo viên - Cập nhật thông tin lớp học
+teacherRouter.patch("/:classId", protect, async (req, res) => {
+  try {
+    if (req.user.role !== "teacher") {
+      return res.status(403).json({ message: "Chỉ giáo viên mới có thể truy cập!" });
+    }
+    
+    const classId = req.params.classId;
+    const { name, description } = req.body;
+    
+    // Tìm lớp học và kiểm tra quyền
+    const classObj = await Class.findById(classId);
+    if (!classObj) {
+      return res.status(404).json({ message: "Không tìm thấy lớp học!" });
+    }
+    
+    // Kiểm tra xem giáo viên có phải là người phụ trách lớp này không
+    if (classObj.teacherId.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: "Bạn không có quyền chỉnh sửa lớp học này!" });
+    }
+    
+    // Cập nhật thông tin lớp học
+    const updateData = {};
+    if (name) updateData.name = name;
+    if (description !== undefined) updateData.description = description;
+    
+    const updatedClass = await Class.findByIdAndUpdate(
+      classId,
+      updateData,
+      { new: true }
+    );
+    
+    res.json({ 
+      message: "Cập nhật thông tin lớp học thành công!", 
+      class: updatedClass 
+    });
+  } catch (error) {
+    console.error('Error updating class:', error);
+    res.status(500).json({ message: "Lỗi server!", error: error.message });
+  }
+});
+
 // 🌟 Admin - Tạo, sửa, xóa lớp học
 router.post("/", protect, createClass);         // Tạo lớp học
 router.patch("/:classId", protect, updateClass); // Cập nhật lớp học
