@@ -18,13 +18,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configure CORS
-// app.use(cors({
-//   origin: ["http://localhost:5665"], // React app URL
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-//   credentials: true
-// }));
 
 // Create HTTP server and socket.io
 const server = http.createServer(app);
