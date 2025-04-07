@@ -1,0 +1,56 @@
+,,,,,,,Hi?n th? thông báo l?i khi không nh?p h? và tên,,,Trung bình,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+R001,Register,Full info,??ng kí và nh?p ??y ?? thông tin,Truy c?p vào trang web và vào trang ??ng kí,R002,Register,No name,??ng kí và không nh?p tên,,,,,,,,,,,,,,,,,,,
+R002,Register,No name,??ng kí và không nh?p tên,The Name field is required.,Hi?n th? thông báo l?i khi không nh?p h? và tên,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R003,Register,No Email,??ng kí và không nh?p email,The Email field is required.,Hi?n th? thông báo l?i khi không nh?p email,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R004,Register,Invalid Email,??ng kí và nh?p email không h?p l?,Please include an '@' in the email address. 'nguyentridung2104' is missing an '@'.,Hi?n th? thông báo l?i ??nh d?ng email không h?p l?,,,Cao,,,,,,,,,,,,,,,,,,,
+R005,Register,No Addess,??ng kí và không nh?p ??a ch?,không address v?n ???c,Hi?n th? thông báo l?i khi không nh?p ??a ch?,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R006,Register,Invalid Address,??ng kí và nh?p thông tin ??a ch? gi?,không address v?n ???c,Hi?n th? thông báo l?i ??a ch? không t?n t?i,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R007,Register,No Password,??ng kí và không nh?p m?t kh?u,"The Password field is required.
+The Confirm password field is required.
+",Hi?n th? thông báo l?i khi không nh?p m?t kh?u,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R008,Register,Too Short Password,M?t kh?u d??i 6 kí t?,"The Password must be at least 6 and at max 100 characters long.
+",Hi?n th? thông báo l?i m?t kh?u ph?i ?? trên 6 ký t?,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R009,Register,No Number Password,M?t kh?u không ch?a s?,"Passwords must have at least one non alphanumeric character.
+Passwords must have at least one digit ('0'-'9').
+Passwords must have at least one uppercase ('A'-'Z').",Hi?n th? thông báo l?i m?t kh?u ph?i bao g?m ch? và s?,,,Trung bình,,,,,,,,,,,,,,,,,,,
+R010,Register,No Special Character Password,M?t kh?u không ch?a kí t? ??c bi?t,Passwords must have at least one non alphanumeric character.,Hi?n th? thông báo l?i không ch?a các ký t? ??c bi?t,,,Cao,,,,,,,,,,,,,,,,,,,
+R011,Register,No Confirm Password,Không nh?p xác nh?n m?t kh?u,"The Confirm password field is required.
+",Hi?n th? thông báo l?i ô xác nh?n m?t kh?u không ???c ?? tr?ng,,,Trung Bình,,,,,,,,,,,,,,,,,,,
+R012,Register,Not Matching Confirm Password,Nh?p xác nh?n m?t kh?u không kh?p,"The password and confirmation password do not match.
+",Hi?n th? thông báo l?i nh?p m?t kh?u không trùng kh?p,,,Cao,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+S001,Search,Valid Product,Tìm s?n ph?m h?p l?,Vào trang ch? c?a trang web có/không ??ng nh?p,Hi?n th? danh sách s?n ph?m phù h?p v?i t? khóa tìm ki?m,,,Trung bình,,,,,,,,,,,,,,,,,,,
+S002,Search,Invalid Product,Tìm s?n ph?m không h?p l?,"No products found.
+
+",Hi?n th? thông báo không có s?n ph?m nào phù h?p,,,Trung bình,,,,,,,,,,,,,,,,,,,
+S003,Search,Empty Search,?? tr?ng ô tìm ki?m s?n ph?m,"No products found.
+
+",Hi?n th? k?t qu? tìm ki?m theo t? khóa nh?p vào,,,Trung bình,,,,,,,,,,,,,,,,,,,
+S004,Search,Single Keyword Search,Ch? search s?n ph?m b?ng 1 kí t? duy nh?t,Ra nh?ng s?n ph?m liên quan ??n ký t? ?ã nh?p,Hi?n th? s?n ph?m phù h?p nh?t v?i t? khóa,,,Trung bình,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+O001,Order,Add a product to cart,Thêm s?n ph?m vào gi? hàng,?ã ??ng nh?p tài kho?n khách hàng vào trang web,S?n ph?m ???c thêm vào gi? hàng thành công,,,Cao,,,,,,,,,,,,,,,,,,,
+O002,Order,Increase product quantity by 1,T?ng s? l??ng s?n ph?m ??t lên 1,T?ng lên 1 ???c,T?ng s? l??ng s?n ph?m lên 1,,,Cao,,,,,,,,,,,,,,,,,,,
+O003,Order,Reduce product quantity by 1,Gi?m s? l??ng s?n ph?m ??t xu?ng 1,Gi?m ???c,Gi?m s? l??ng s?n ph?m ?i 1,,,Cao,,,,,,,,,,,,,,,,,,,
+O004,Order,Reduce product quantity to 0,Gi?m s? l??ng s?n ph?m khi s?n ph?m còn 1,không gi?m ???c,Xóa m?t s?n ph?m trong cart,,,Cao,,,,,,,,,,,,,,,,,,,
+O005,Order,Remove a product from cart,Xoá s?n ph?m kh?i gi? hàng,Xóa ???c,Xóa m?t s?n ph?m kh?i gi? hàng thành công,,,Trung bình,,,,,,,,,,,,,,,,,,,
+O006,Order,Remove all product from cart,Xoá m?i s?n ph?m kh?i gi? hàng,Không có remove all,Xóa toàn b? s?n ph?m trong gi? hàng thành công,,,Trung bình,,,,,,,,,,,,,,,,,,,
+O007,Order,Check My Orders,Ki?m tra các ??n ??t hàng,Có hi?n th?,Hi?n th? danh sách các ??n hàng ?ã ??t c?a ng??i dùng,,,Trung bình,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+C001,Checkout,Submit Order,??t hàng,?ã có s?n ph?m trong gi? hàng,Hi?n th? trang thanh toán v?i s?n ph?m trong gi? hàng,,,Cao,,,,,,,,,,,,,,,,,,,
+C002,Checkout,No name,Không nh?p tên,,Hi?n th? thông báo l?i khi không nh?p tên,,,Cao,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+P001,Profile,Change Phone Number,Thay ??i SDT ng??i dùng,??i ?c,Hi?n th? thông báo ?ã ??i SDT thành công,,,Cao,,,,,,,,,,,,,,,,,,,
+P002,Profile,Change Email,Thay ??i email ng??i dùng,Không ??i ???c do Confirmation link to change email sent. Please check your email. không có mail,Hi?n th? thông báo ?ã ??i Email thành công,,,Cao,,,,,,,,,,,,,,,,,,,
+P003,Profile,Change Password,Thay ??i password ng??i dùng,Your password has been changed.,Hi?n th? thông báo ?ã ??i m?t kh?u thành công,,,Cao,,,,,,,,,,,,,,,,,,,
+P004,Profile,Add 2FA,Thêm b?o m?t 2FA vào tài kho?n,"× Your authenticator app has been verified.
+",Ng??i dùng kích ho?t b?o m?t hai y?u t? (2FA) thành công,,,Trung bình,,,,,,,,,,,,,,,,,,,
+P005,Profile,Download Data,T?i d? li?u ng??i dùng v? máy,t?i ???c,Hiên th? thông báo t?i d? li?u v? máy thành công,,,Trung bình,,,,,,,,,,,,,,,,,,,
+P006,Profile,Delete Account,Xoá tài kho?n,xóa ???c,Hi?n th? thông báo xóa tài kho?n thành công,,,Trung bình,,,,,,,,,,,,,,,,,,,
